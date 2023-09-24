@@ -18,7 +18,7 @@ import Image from 'next/image'
 import ProductForm from './productForm'
 
 export const revalidate = 1000000
-
+export const dynamic = 'force-static'
 
 export default async function Products({ params }: { params: { id: string } }) {
 
