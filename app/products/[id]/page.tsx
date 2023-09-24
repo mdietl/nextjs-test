@@ -73,11 +73,11 @@ export default async function Products({ params }: { params: { id: string } }) {
         </main >
     )
 }
-export async function generateStaticParams() {
-    // Call an external API endpoint to get posts
-    const res = await fetch(`https://fakestoreapi.com/products`)
-    const products: Array<Product> = await res.json()
-    // By returning { props: { posts } }, the Blog component
-    // will receive `posts` as a prop at build time
-    return products.map(product => ({ id: product.id.toString() }))
-}
+// export async function generateStaticParams() {
+//     // Call an external API endpoint to get posts
+//     const res = await fetch(`https://fakestoreapi.com/products`)
+//     const products: Array<Product> = await res.json()
+//     // By returning { props: { posts } }, the Blog component
+//     // will receive `posts` as a prop at build time
+//     return products.map(product => ({ id: product.id.toString() }))
+// }
