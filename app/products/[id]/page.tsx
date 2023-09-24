@@ -30,7 +30,7 @@ export default async function Products({ params }: { params: { id: string } }) {
 
     return (
         <main className="flex min-h-screen flex-col items-center space-y-10 pt-6">
-            <Card key={product.id} className="h-[250px]" orientation="horizontal">
+            <Card key={product.id} className="h-[250px] w-[500px]" orientation="horizontal">
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
