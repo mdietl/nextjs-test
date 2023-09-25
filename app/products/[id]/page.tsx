@@ -17,6 +17,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ProductForm from './productForm'
 
+
+
 export const revalidate = 1000000
 export const dynamic = 'force-static'
 
