@@ -20,16 +20,11 @@ import ProductForm from './productForm'
 
 
 export const revalidate = 1000000
-export const dynamic = 'force-static'
 
 export default async function Products({ params }: { params: { id: string } }) {
 
-    console.time('FETCH PRODUCT')
     const res = await fetch(`https://fakestoreapi.com/products/${params.id.toString()}`, { next: { tags: [`products/${params.id}`] } })
-    console.timeEnd('FETCH PRODUCT')
     const product: Product = await res.json()
-    // const res2 = await fetch(`http://127.0.0.1:8080/test.json`, { next: { tags: [`products/${params.id}`] } })
-    // const rand: { rand: number } = await res2.json()
 
     return (
         <main className="flex min-h-screen flex-col items-center space-y-10 pt-6">
