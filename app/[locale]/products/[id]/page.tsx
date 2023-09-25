@@ -12,7 +12,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Product } from '../../../types/product'
+import { Product } from '../../../../types/product'
 import Link from 'next/link'
 import Image from 'next/image'
 import ProductForm from './productForm'

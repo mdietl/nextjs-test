@@ -9,8 +9,6 @@ import {
 } from "@/components/ui/card"
 import { Product } from '../../types/product'
 import Link from 'next/link'
-import { getUserContext } from '../utils/getUserContext'
-import { cx } from 'class-variance-authority'
 
 
 export const ProductList: React.FC<{ slug?: string }> = async (props) => {

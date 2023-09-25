@@ -1,0 +1,47 @@
+{
+  "languageSwitcher": {
+    "choosePreferredLanguage": {
+      "ar": "Choose your language",
+      "de": "Choose your language",
+      "en": "Choose your language"
+    }
+  },
+  "nav": {
+    "culinary": {
+      "ar": "[ar: nav.culinary => Kulinarik]",
+      "de": "Kulinarik",
+      "en": "Culinary"
+    },
+    "inpiration": {
+      "ar": "[ar: nav.inpiration => Inspiration]",
+      "de": "Inspiration",
+      "en": "Inspiration"
+    },
+    "movement": {
+      "ar": "[ar: nav.movement => Bewegung]",
+      "de": "Bewegung",
+      "en": "Movement"
+    },
+    "recovery": {
+      "ar": "[ar: nav.recovery => Erholung]",
+      "de": "Erholung",
+      "en": "Recovery"
+    },
+    "sustainability": {
+      "ar": "[ar: nav.sustainability => Nachhaltigkeit]",
+      "de": "Nachhaltigkeit",
+      "en": "Sustainability"
+    }
+  },
+  "test": {
+    "_notExtracted": true,
+    "ar": "[ar: test => JOJO]",
+    "de": "JOJO",
+    "en": "[en: test => JOJO]"
+  },
+  "title": {
+    "ar": "[ar: title => Title de]",
+    "de": "Title de",
+    "en": "[en: title => Title de]"
+  }
+}

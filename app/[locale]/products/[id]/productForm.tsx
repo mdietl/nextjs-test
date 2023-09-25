@@ -35,6 +35,7 @@ export default function ProductForm() {
             <div className="space-y-1">
                 <Button type="submit">Save password</Button>
             </div>
+
             <div className="space-y-1">
                 <Label htmlFor="password">Password</Label>
                 <Select
