@@ -50,7 +50,7 @@ module.exports = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
-                ["cardsecondary"]: {
+                ["card-secondary"]: {
                     DEFAULT: "hsl(var(--card-secondary))",
                     foreground: "hsl(var(--card-secondary-foreground))",
                 },

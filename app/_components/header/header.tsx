@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu"
 
 
-import { MenuDrawer } from '../menuDrawer'
+import { NavDrawer } from './navDrawer'
 import Image from 'next/image'
 import logo from '@/public/logo.svg'
 import { cx } from 'class-variance-authority'
@@ -34,9 +34,9 @@ export const Header: React.FC<{}> = () => {
     ]), [])
 
     return (
-        <header className="flex items-center justify-between w-full px-12 py-4 shadow-md m-auto">
-            <NavigationMenu className="max-w-none justify-between w-full" >
-                <NavigationMenuList className="justify-normal ">
+        <header className="flex items-center justify-center w-full py-2 shadow-md px-1 2xl:px-0">
+            <NavigationMenu className="grid grid-cols-6 max-w-screen-2xl w-full" >
+                <NavigationMenuList className=" justify-start">
                     <NavigationMenuItem className="min-w-max">
                         <Link href="/" legacyBehavior passHref>
                             <NavigationMenuLink className="">
@@ -44,24 +44,27 @@ export const Header: React.FC<{}> = () => {
                                     priority
                                     src={logo}
                                     alt="austria.info"
-                                    style={{ width: 200, height: 50 }}
+                                    style={{ width: 150, height: 50 }}
                                 />
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                 </NavigationMenuList>
-                <NavigationMenuList className="justify-normal hidden lg:flex">
-                    {menuItems.map((item, index) => (
-                        <HeaderNavigationMenuItem key={index} {...item} />
-                    ))}
-                </NavigationMenuList>
-                <NavigationMenuList className="justify-end flex ">
+                <div className="col-span-4">
+                    <NavigationMenuList className="hidden lg:flex ">
+                        {menuItems.map((item, index) => (
+                            <HeaderNavigationMenuItem key={index} {...item} />
+                        ))}
+
+                    </NavigationMenuList>
+                </div>
+                <NavigationMenuList className="justify-end">
                     <NavigationMenuItem className="lg:hidden" asChild>
                         <LanguageSwitcher />
                     </NavigationMenuItem>
                     <NavigationMenuItem className="lg:hidden">
                         <NavigationMenuLink className="bg-none">
-                            <MenuDrawer />
+                            <NavDrawer />
                         </NavigationMenuLink>
                     </NavigationMenuItem>
 

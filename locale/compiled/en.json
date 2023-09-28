@@ -5,6 +5,11 @@
   "nav.movement": "Movement",
   "nav.recovery": "Recovery",
   "nav.sustainability": "Sustainability",
+  "newsletter.card.header": "Don't miss anything!",
+  "newsletter.card.subtitle": "Always stay informed.",
+  "newsletter.card.title": "Newsletter Sign up",
+  "newsletter.form.email.label": "E-Mail Address",
+  "newsletter.form.submit": "Sign up now",
   "test": "[en: test => JOJO]",
   "title": "[en: title => Title de]"
 }

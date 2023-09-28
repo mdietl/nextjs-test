@@ -11,15 +11,15 @@ import {
 } from "@/components/ui/sheet"
 
 import { Link, Menu } from 'lucide-react'
-import { Button } from '../../components/ui/button'
+import { Button } from '../../../components/ui/button'
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from '@radix-ui/react-navigation-menu'
-import { HeaderNavigationMenuItem } from './header/headerNavigationMenuItem'
-import { LanguageSwitcher } from './languageSwitcher'
-import { NavItem } from './header/types'
+import { HeaderNavigationMenuItem } from './headerNavigationMenuItem'
+import { LanguageSwitcher } from '../languageSwitcher'
+import { NavItem } from './types'
 import { useIntl } from 'react-intl'
 import { useMemo } from 'react'
 
-export const MenuDrawer: React.FC<{}> = () => {
+export const NavDrawer: React.FC<{}> = () => {
     const intl = useIntl()
     const menuItems: Array<NavItem> = useMemo(() => ([
         { label: intl.formatMessage({ id: 'nav.recovery', defaultMessage: 'Erholung' }), href: '/erholung' },

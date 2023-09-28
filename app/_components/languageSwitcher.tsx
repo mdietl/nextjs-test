@@ -40,7 +40,7 @@ export const LanguageSwitcher: React.FC<{}> = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outline"><Languages /></Button>
+                <Button variant="outline" ><Languages /></Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
                 <DropdownMenuLabel><FormattedMessage id="languageSwitcher.choosePreferredLanguage" defaultMessage="Wählen sie Ihre Sprache aus" /></DropdownMenuLabel>

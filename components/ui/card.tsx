@@ -10,16 +10,17 @@ const cardVariants = cva(
         variants: {
             variant: {
                 primary: "",
-                secondary: "bg-secondary text-secondary-foreground",
+                secondary: "bg-card-secondary text-card-secondary-foreground",
             },
             orientation: {
-                default: "[&>.card-image>img]:w-full",
-                horizontal: "flex [&>.card-image>img]:h-full",
+                responsive: "sm:flex sm:[&>.card-image]:w-8/12 [&>.card-image>img]:w-full [&>.card-image>img]:sm:h-full",
+                vertical: "[&>.card-image>img]:w-full",
+                horizontal: "flex [&>.card-image]:w-8/12 [&>.card-image>img]:h-full",
             },
         },
         defaultVariants: {
             variant: "primary",
-            orientation: "default",
+            orientation: "responsive",
         },
     }
 )
@@ -54,7 +55,7 @@ const CardHeader = React.forwardRef<
 ))
 CardHeader.displayName = "CardHeader"
 
-const CardImage = React.forwardRef<
+const CardMedia = React.forwardRef<
     HTMLDivElement,
     React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -64,19 +65,19 @@ const CardImage = React.forwardRef<
         {...props}
     />
 ))
-CardImage.displayName = "CardImage"
+CardMedia.displayName = "CardMedia"
 
-const CardImageContent = React.forwardRef<
+const CardMediaContent = React.forwardRef<
     HTMLDivElement,
     React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
     <div
         ref={ref}
-        className={cn("absolute", className)}
+        className={cn("card-image-content absolute w-full", className)}
         {...props}
     />
 ))
-CardImageContent.displayName = "CardImageContent"
+CardMediaContent.displayName = "CardMediaContent"
 
 const CardTitle = React.forwardRef<
     HTMLParagraphElement,
@@ -125,4 +126,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardImage, CardImageContent }
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardMedia, CardMediaContent }

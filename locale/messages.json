@@ -8,29 +8,62 @@
   },
   "nav": {
     "culinary": {
-      "ar": "[ar: nav.culinary => Kulinarik]",
+      "ar": "الطهي",
       "de": "Kulinarik",
       "en": "Culinary"
     },
     "inpiration": {
-      "ar": "[ar: nav.inpiration => Inspiration]",
+      "ar": "إلهام",
       "de": "Inspiration",
       "en": "Inspiration"
     },
     "movement": {
-      "ar": "[ar: nav.movement => Bewegung]",
+      "ar": "حركة",
       "de": "Bewegung",
       "en": "Movement"
     },
     "recovery": {
-      "ar": "[ar: nav.recovery => Erholung]",
+      "ar": "استجمام",
       "de": "Erholung",
       "en": "Recovery"
     },
     "sustainability": {
-      "ar": "[ar: nav.sustainability => Nachhaltigkeit]",
+      "ar": "استدامة",
       "de": "Nachhaltigkeit",
       "en": "Sustainability"
+    }
+  },
+  "newsletter": {
+    "card": {
+      "header": {
+        "ar": "لا تفوت أي شيء!",
+        "de": "Verpassen Sie nichts!",
+        "en": "Don't miss anything!"
+      },
+      "subtitle": {
+        "ar": "ابق دائما على اطلاع.",
+        "de": "Bleiben Sie immer informiert.",
+        "en": "Always stay informed."
+      },
+      "title": {
+        "ar": "الاشتراك في الرسائل الإخبارية",
+        "de": "Newsletter Anmeldung",
+        "en": "Newsletter Sign up"
+      }
+    },
+    "form": {
+      "email": {
+        "label": {
+          "ar": "عنوان البريد الإلكتروني",
+          "de": "E-Mail Adresse",
+          "en": "E-Mail Address"
+        }
+      },
+      "submit": {
+        "ar": "النشرة الإخبارية ",
+        "de": "Jetzt anmelden",
+        "en": "Sign up now"
+      }
     }
   },
   "test": {
@@ -40,6 +73,7 @@
     "en": "[en: test => JOJO]"
   },
   "title": {
+    "_notExtracted": true,
     "ar": "[ar: title => Title de]",
     "de": "Title de",
     "en": "[en: title => Title de]"

@@ -1,10 +1,15 @@
 {
   "languageSwitcher.choosePreferredLanguage": "Choose your language",
-  "nav.culinary": "[ar: nav.culinary => Kulinarik]",
-  "nav.inpiration": "[ar: nav.inpiration => Inspiration]",
-  "nav.movement": "[ar: nav.movement => Bewegung]",
-  "nav.recovery": "[ar: nav.recovery => Erholung]",
-  "nav.sustainability": "[ar: nav.sustainability => Nachhaltigkeit]",
+  "nav.culinary": "الطهي",
+  "nav.inpiration": "إلهام",
+  "nav.movement": "حركة",
+  "nav.recovery": "استجمام",
+  "nav.sustainability": "استدامة",
+  "newsletter.card.header": "لا تفوت أي شيء!",
+  "newsletter.card.subtitle": "ابق دائما على اطلاع.",
+  "newsletter.card.title": "الاشتراك في الرسائل الإخبارية",
+  "newsletter.form.email.label": "عنوان البريد الإلكتروني",
+  "newsletter.form.submit": "النشرة الإخبارية ",
   "test": "[ar: test => JOJO]",
   "title": "[ar: title => Title de]"
 }

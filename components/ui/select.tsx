@@ -1,79 +1,121 @@
-import { cx } from 'class-variance-authority'
-import { stat } from 'fs'
-import React from 'react'
-import ReactSelect, { ClassNamesConfig, GroupBase } from 'react-select'
-import ReactAsyncSelect from 'react-select/async'
+"use client"
 
-const options = [
-	{ value: 'chocolate', label: 'Chocolate' },
-	{ value: 'strawberry', label: 'Strawberry' },
-	{ value: 'vanilla', label: 'Vanilla' }
-]
+import * as React from "react"
+import * as SelectPrimitive from "@radix-ui/react-select"
+import { Check, ChevronDown } from "lucide-react"
 
-const styles: ClassNamesConfig<unknown, boolean, GroupBase<unknown>> = {
-	container: state => cx(
-		'border border-input rounded-md ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground min-h-[2.5rem]',
-		state.isFocused && 'ring-2 ring-ring ring-offset-2',
+import { cn } from "@/lib/utils"
 
-	),
-	control: state => cx(
-		'flex items-center flex-wrap justify-between'
-	),
-	valueContainer: state => cx('flex items-center px-4 gap-1.5'),
-	multiValue: state => cx('bg-accent text-sm rounded-md pl-2.5  flex items-center justify-between gap-1'),
-	input: state => cx('flex  placeholder:text-muted-foreground'),
-	menu: state => cx('rounded-md border bg-card text-card-foreground shadow-lg overflow-hidden mt-2'),
-	menuList: state => cx('max-h-72 overflow-y-auto relative py-1 flex-1'),
-	option: state => cx(
-		'py-1.5 px-4',
-		state.isFocused && 'bg-primary/40 text-accent-foreground',
-		state.isSelected && 'bg-primary text-primary-foreground',
-	),
-	indicatorsContainer: state => cx('flex flex-shrink-0 gap-1.5 items-stretch'),
-	dropdownIndicator: state => cx(
-		'text-muted-foreground p-2 cursor-pointer',
-		state.isFocused && 'text-accent-foreground'
-	),
-	clearIndicator: state => cx(
-		'text-muted-foreground p-2 cursor-pointer',
-		state.isFocused && 'text-accent-foreground'
-	),
-	indicatorSeparator: state => cx('bg-muted-foreground w-1 my-3'),
+const Select = SelectPrimitive.Root
 
-	multiValueRemove: state => cx(
-		'flex px-1 cursor-pointer text-muted-foreground hover:text-foreground',
+const SelectGroup = SelectPrimitive.Group
 
-	),
-	multiValueLabel: state => cx('py-1.5'),
+const SelectValue = SelectPrimitive.Value
 
+const SelectTrigger = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
+>(({ className, children, ...props }, ref) => (
+  <SelectPrimitive.Trigger
+    ref={ref}
+    className={cn(
+      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+      className
+    )}
+    {...props}
+  >
+    {children}
+    <SelectPrimitive.Icon asChild>
+      <ChevronDown className="h-4 w-4 opacity-50" />
+    </SelectPrimitive.Icon>
+  </SelectPrimitive.Trigger>
+))
+SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
+
+const SelectContent = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
+>(({ className, children, position = "popper", ...props }, ref) => (
+  <SelectPrimitive.Portal>
+    <SelectPrimitive.Content
+      ref={ref}
+      className={cn(
+        "relative z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        position === "popper" &&
+          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+        className
+      )}
+      position={position}
+      {...props}
+    >
+      <SelectPrimitive.Viewport
+        className={cn(
+          "p-1",
+          position === "popper" &&
+            "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"
+        )}
+      >
+        {children}
+      </SelectPrimitive.Viewport>
+    </SelectPrimitive.Content>
+  </SelectPrimitive.Portal>
+))
+SelectContent.displayName = SelectPrimitive.Content.displayName
+
+const SelectLabel = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Label>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Label
+    ref={ref}
+    className={cn("py-1.5 pl-8 pr-2 text-sm font-semibold", className)}
+    {...props}
+  />
+))
+SelectLabel.displayName = SelectPrimitive.Label.displayName
+
+const SelectItem = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+>(({ className, children, ...props }, ref) => (
+  <SelectPrimitive.Item
+    ref={ref}
+    className={cn(
+      "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      className
+    )}
+    {...props}
+  >
+    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <SelectPrimitive.ItemIndicator>
+        <Check className="h-4 w-4" />
+      </SelectPrimitive.ItemIndicator>
+    </span>
+
+    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+  </SelectPrimitive.Item>
+))
+SelectItem.displayName = SelectPrimitive.Item.displayName
+
+const SelectSeparator = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Separator>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.Separator
+    ref={ref}
+    className={cn("-mx-1 my-1 h-px bg-muted", className)}
+    {...props}
+  />
+))
+SelectSeparator.displayName = SelectPrimitive.Separator.displayName
+
+export {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
 }
-
-const Select = React.forwardRef<
-	React.ElementRef<typeof ReactSelect>,
-	React.ComponentProps<typeof ReactSelect>
->(({ className, ...props }, ref) => (
-	<ReactSelect
-		ref={ref}
-		{...props}
-		unstyled
-		classNames={styles}
-	/>
-))
-
-Select.displayName = "Select"
-
-const AsyncSelect = React.forwardRef<
-	React.ElementRef<typeof ReactAsyncSelect>,
-	React.ComponentProps<typeof ReactAsyncSelect>
->(({ className, ...props }, ref) => (
-	<ReactSelect
-		ref={ref}
-		{...props}
-		unstyled
-		classNames={styles}
-	/>
-))
-
-AsyncSelect.displayName = "AsyncSelect"
-
-export { Select, AsyncSelect }

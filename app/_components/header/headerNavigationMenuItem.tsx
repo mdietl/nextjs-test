@@ -14,10 +14,9 @@ import { FormattedMessage } from 'react-intl'
 export const HeaderNavigationMenuItem: React.FC<NavItem> = ({ label, href }) => {
     return (
         <>
-
             <NavigationMenuItem>
                 <Link href={href} legacyBehavior passHref>
-                    <NavigationMenuLink className={cx(navigationMenuTriggerStyle(), 'text-[1.08rem]')}>
+                    <NavigationMenuLink className={cx(navigationMenuTriggerStyle(), 'text-[1.105rem]')}>
                         {label}
                     </NavigationMenuLink>
                 </Link>

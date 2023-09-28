@@ -4,7 +4,7 @@ import {
     CardDescription,
     CardFooter,
     CardImage,
-    CardImageContent
+    CardMediaContent
 } from "@/components/ui/card"
 import {
     Tooltip,
@@ -27,15 +27,15 @@ export default async function Products({ params }: { params: { id: string } }) {
     const product: Product = await res.json()
 
     return (
-        <main className="flex min-h-screen flex-col items-center space-y-10 pt-6">
-            <Card key={product.id} className="h-[250px] w-[500px]" orientation="horizontal">
+        <main className="flex min-h-screen flex-col items-center space-y-10 pt-6 px-4">
+            <Card key={product.id} className="h-[250px] w-full sm:w-[500px]" orientation="horizontal">
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <CardImage className="w-[40%]">
-                                <CardImageContent className="bottom-0 flex flex-col justify-end p-6 w-full text-white bg-gradient-to-b from-slate-900/0 to-slate-900">
+                            <CardImage className="">
+                                <CardMediaContent className="bottom-0 flex flex-col justify-end p-6 w-full text-white bg-gradient-to-b from-slate-900/0 to-slate-900">
                                     <span className="text-2xl">{product.title}</span>
-                                </CardImageContent>
+                                </CardMediaContent>
                                 <Image
                                     src={product.image} alt="image"
 
@@ -54,7 +54,7 @@ export default async function Products({ params }: { params: { id: string } }) {
                     </Tooltip>
                 </TooltipProvider>
 
-                <div className="flex flex-col justify-between w-2/3 ">
+                <div className="flex flex-col justify-between">
 
                     <CardContent className="space-y-2 pt-6">
                         <CardDescription>

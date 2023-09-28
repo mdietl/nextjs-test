@@ -5,6 +5,11 @@
   "nav.movement": "Bewegung",
   "nav.recovery": "Erholung",
   "nav.sustainability": "Nachhaltigkeit",
+  "newsletter.card.header": "Verpassen Sie nichts!",
+  "newsletter.card.subtitle": "Bleiben Sie immer informiert.",
+  "newsletter.card.title": "Newsletter Anmeldung",
+  "newsletter.form.email.label": "E-Mail Adresse",
+  "newsletter.form.submit": "Jetzt anmelden",
   "test": "JOJO",
   "title": "Title de"
 }

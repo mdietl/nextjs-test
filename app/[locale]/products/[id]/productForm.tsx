@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { myAction } from './actions'
-import { Select, AsyncSelect } from '@/components/ui/select'
+import { Select, AsyncSelect } from '@/components/ui/reactSelect'
 import { use, useEffect } from 'react'
 
 const options = [
@@ -22,7 +22,7 @@ const options = [
 export default function ProductForm() {
 
     return (
-        <form action={myAction} className="flex flex-col space-y-4 w-1/2">
+        <form action={myAction} className="flex flex-col space-y-4  w-full sm:w-1/3 ">
             <div className="space-y-1">
                 <Label htmlFor="user">User</Label>
                 <Input id="user" name="user" required />
