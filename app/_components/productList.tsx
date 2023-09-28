@@ -4,7 +4,7 @@ import {
     CardContent,
     CardDescription,
     CardFooter,
-    CardImage,
+    CardMedia,
     CardMediaContent
 } from "@/components/ui/card"
 import { Product } from '../../types/product'
@@ -28,7 +28,7 @@ export const ProductList: React.FC<{ slug?: string }> = async (props) => {
                             variant={i % 2 === 0 ? 'secondary' : undefined}
                         >
                             <a href={`products/${product.id}`}>
-                                <CardImage className="h-2/5 overflow-hidden">
+                                <CardMedia className="h-2/5 overflow-hidden">
                                     <CardMediaContent className="bottom-0 flex flex-col justify-end p-6 w-full text-white bg-gradient-to-b from-slate-900/0 to-slate-900">
                                         <span className="text-2xl"> {product.title}</span>
                                     </CardMediaContent>
@@ -41,7 +41,7 @@ export const ProductList: React.FC<{ slug?: string }> = async (props) => {
                                         }}
                                     />
 
-                                </CardImage>
+                                </CardMedia>
                             </a>
                             <div className="h-3/5 flex flex-col justify-between">
                                 <CardContent className="space-y-2 pt-6">

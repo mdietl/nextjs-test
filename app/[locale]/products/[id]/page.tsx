@@ -3,7 +3,7 @@ import {
     CardContent,
     CardDescription,
     CardFooter,
-    CardImage,
+    CardMedia,
     CardMediaContent
 } from "@/components/ui/card"
 import {
@@ -32,7 +32,7 @@ export default async function Products({ params }: { params: { id: string } }) {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <CardImage className="">
+                            <CardMedia className="">
                                 <CardMediaContent className="bottom-0 flex flex-col justify-end p-6 w-full text-white bg-gradient-to-b from-slate-900/0 to-slate-900">
                                     <span className="text-2xl">{product.title}</span>
                                 </CardMediaContent>
@@ -46,7 +46,7 @@ export default async function Products({ params }: { params: { id: string } }) {
                                     style={{ objectFit: 'cover' }}
                                 />
 
-                            </CardImage>
+                            </CardMedia>
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>{product.description}</p>
